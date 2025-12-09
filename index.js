@@ -64,9 +64,9 @@ const startServer = async () => {
     // MongoDB 연결 대기
     await connectDB();
     
-    // 서버 시작
-    app.listen(PORT, () => {
-      console.log(`🚀 Server is running on http://localhost:${PORT}`);
+    // 서버 시작 (Heroku 호환)
+    app.listen(PORT, '0.0.0.0', () => {
+      console.log(`🚀 Server is running on port ${PORT}`);
     });
   } catch (error) {
     console.error('❌ 서버 시작 실패:', error);
